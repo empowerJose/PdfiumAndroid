@@ -2,7 +2,7 @@ package com.shockwave.pdfium;
 
 import android.graphics.RectF;
 import android.os.ParcelFileDescriptor;
-import android.support.v4.util.ArrayMap;
+import androidx.collection.ArrayMap;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -54,7 +54,7 @@ public class PdfDocument {
     }
 
     public static class Bookmark {
-        private List<Bookmark> children = new ArrayList<>();
+        private final List<Bookmark> children = new ArrayList<>();
         String title;
         long pageIdx;
         long mNativePtr;
@@ -77,9 +77,9 @@ public class PdfDocument {
     }
 
     public static class Link {
-        private RectF bounds;
-        private Integer destPageIdx;
-        private String uri;
+        private final RectF bounds;
+        private final Integer destPageIdx;
+        private final String uri;
 
         public Link(RectF bounds, Integer destPageIdx, String uri) {
             this.bounds = bounds;

@@ -18,7 +18,7 @@ import java.util.List;
 
 public class PdfiumCore {
     private static final String TAG = PdfiumCore.class.getName();
-    private static final Class FD_CLASS = FileDescriptor.class;
+    private static final Class<FileDescriptor> FD_CLASS = FileDescriptor.class;
     private static final String FD_FIELD_NAME = "descriptor";
 
     static {
@@ -96,7 +96,7 @@ public class PdfiumCore {
     /* synchronize native methods */
     private static final Object lock = new Object();
     private static Field mFdField = null;
-    private int mCurrentDpi;
+    private final int mCurrentDpi;
 
     public static int getNumFd(ParcelFileDescriptor fdObj) {
         try {
@@ -119,7 +119,7 @@ public class PdfiumCore {
     /** Context needed to get screen density */
     public PdfiumCore(Context ctx) {
         mCurrentDpi = ctx.getResources().getDisplayMetrics().densityDpi;
-        Log.d(TAG, "Starting PdfiumAndroid " + BuildConfig.VERSION_NAME);
+        Log.d(TAG, "Starting PdfiumAndroid " );
     }
 
     /** Create new document from file */
